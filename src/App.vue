@@ -85,19 +85,25 @@ const detectLocation = async () => {
     const data = await response.json()
     const country = data.country_code
     
-    // LATAM (Tarifa Regional / Descuento)
-    if (['VE', 'CO', 'AR', 'PE', 'EC', 'CL', 'MX'].includes(country)) {
-      prices.value = { landing: 200, corporate: 450, ecommerce: 1000, currency: 'USD', symbol: '$' }
+    // 🇻🇪 1. Tarifa Nacional Exclusiva (Venezuela)
+    if (country === 'VE') {
+      // Ajusta aquí tus precios para clientes locales
+      prices.value = { landing: 250, corporate: 450, ecommerce: 850, currency: 'USD', symbol: '$' }
+      userLocation.value = `📍 Tarifa Nacional: Venezuela`
+    } 
+    // 🌎 2. Resto de LATAM (Tarifa Regional) - Eliminamos 'VE' de esta lista
+    else if (['CO', 'AR', 'PE', 'EC', 'CL', 'MX'].includes(country)) {
+      prices.value = { landing: 350, corporate: 550, ecommerce: 1000, currency: 'USD', symbol: '$' }
       userLocation.value = `📍 Tarifa LATAM: ${data.country_name}`
     } 
-    // Europa (Tarifa EU en Euros)
+    // 🇪🇺 3. Europa (Tarifa EU en Euros)
     else if (['ES', 'FR', 'IT', 'DE', 'PT'].includes(country)) {
       prices.value = { landing: 400, corporate: 650, ecommerce: 1150, currency: 'EUR', symbol: '€' }
       userLocation.value = `📍 Tarifa Europa: ${data.country_name}`
     } 
-    // Global / EE.UU.
+    // 🌐 4. Global / EE.UU. (Tarifa Base)
     else {
-      prices.value = { landing: 400, corporate: 650, ecommerce: 1150, currency: 'USD', symbol: '$' }
+      prices.value = { landing: 450, corporate: 700, ecommerce: 1200, currency: 'USD', symbol: '$' }
       userLocation.value = `📍 Tarifa Global: ${data.country_name || 'US'}`
     }
   } catch (error) {
