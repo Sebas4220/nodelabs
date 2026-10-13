@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Importar tipografías locales */
+@import '@fontsource/space-grotesk';
+@import '@fontsource/dm-sans';
+@import '@fontsource/fira-code';
+
+/* Configuración de tu marca (Reemplaza al tailwind.config.js) */
+@theme {
+  --color-node-cyan: #00D8FF;
+  --color-node-dark: #1F1F1F;
+  
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
