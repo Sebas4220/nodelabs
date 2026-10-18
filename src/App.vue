@@ -1,5 +1,53 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+
+// --- Lógica de Trackers Diferidos (Lighthouse 100/100) ---
+const trackersLoaded = ref(false)
+
+const loadTrackers = () => {
+  if (trackersLoaded.value) return
+  trackersLoaded.value = true
+  removeListeners()
+
+  // 1. Inyectar Google Analytics
+  const gtagScript = document.createElement('script')
+  gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'
+  gtagScript.async = true
+  document.head.appendChild(gtagScript)
+
+  const gtagInit = document.createElement('script')
+  gtagInit.innerHTML = `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');`
+  document.head.appendChild(gtagInit)
+
+  // 2. Inyectar Facebook Pixel
+  const fbScript = document.createElement('script')
+  fbScript.innerHTML = `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', 'TU_PIXEL_ID');fbq('track', 'PageView');`
+  document.head.appendChild(fbScript)
+}
+
+const removeListeners = () => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('scroll', loadTrackers)
+    window.removeEventListener('mousemove', loadTrackers)
+    window.removeEventListener('touchstart', loadTrackers)
+    window.removeEventListener('keydown', loadTrackers)
+  }
+}
+
+onMounted(() => {
+  // Fallback: Cargar los trackers después de 7 segundos si el usuario no hace nada
+  setTimeout(loadTrackers, 7000)
+
+  // Escuchar interacciones reales del usuario
+  window.addEventListener('scroll', loadTrackers, { passive: true })
+  window.addEventListener('mousemove', loadTrackers, { passive: true })
+  window.addEventListener('touchstart', loadTrackers, { passive: true })
+  window.addEventListener('keydown', loadTrackers, { passive: true })
+})
+
+onUnmounted(() => {
+  removeListeners()
+})
 
 // --- Lógica del FAQ ---
 const faqs = ref([
@@ -72,7 +120,7 @@ const handleCheckout = (planName, price) => {
             fetchpriority="high"
           />
           
-          <!-- Botón de Play Overlay (Cambiado a <button> y color a #D90036) -->
+          <!-- Botón de Play Overlay -->
           <div class="absolute inset-0 flex items-center justify-center">
             <button 
               aria-label="Reproducir video explicativo"
@@ -87,7 +135,7 @@ const handleCheckout = (planName, price) => {
           Activa el sonido: Mira cómo posicionamos tu empresa en Google y multiplicamos tus contactos.
         </p>
 
-        <!-- Botón de Acción Principal (Ajustado el gradiente a #D90036 para accesibilidad) -->
+        <!-- Botón de Acción Principal -->
         <button 
           @click="handleCheckout('Plan Landing Page', '$37.50')"
           class="w-full sm:w-auto bg-gradient-to-r from-[#D90036] to-[#B0002A] hover:from-[#B0002A] hover:to-[#D90036] text-white font-bold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(217,0,54,0.4)] transform hover:-translate-y-1 transition-all duration-300 text-lg"
