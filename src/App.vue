@@ -68,7 +68,7 @@ const handleCheckout = (planName, price) => {
   <div class="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#FF1E56] selection:text-white">
     
     <!-- PRE-HEADLINE (CEBO SUPERIOR) -->
-    <div class="bg-[#D90036] text-white text-center py-3 px-4 text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_15px_rgba(217,0,54,0.3)]">
+    <div class="bg-[#D90036] text-white text-center py-3 px-4 text-[0.75rem] sm:text-[0.75rem] font-semibold tracking-wide shadow-[0_0_15px_rgba(217,0,54,0.3)]">
       ¿Tu empresa sigue dependiendo de subir historias todos los días o del boca a boca para conseguir clientes?
     </div>
 
@@ -78,11 +78,11 @@ const handleCheckout = (planName, price) => {
       <div class="absolute top-0 w-[500px] h-[500px] bg-[#FF1E56]/10 rounded-full blur-[150px] pointer-events-none will-change-transform transform-gpu"></div>
 
       <div class="relative z-10 w-full max-w-4xl">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+        <h1 class="text-4xl sm:text-[1.5rem] md:text-[2rem] font-bold leading-[1.1] tracking-tight mb-6">
           Haz que tus clientes ideales encuentren tu negocio en Google todos los días y convierte sus visitas en ventas reales... <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1E56] to-[#FF809F]">invirtiendo desde $0.41 centavos al día.</span>
         </h1>
         
-        <p class="text-gray-300 text-base sm:text-lg mb-12 leading-relaxed max-w-3xl mx-auto">
+        <p class="text-gray-300 text-base sm:text-[0.85rem] mb-12 leading-relaxed max-w-3xl mx-auto">
           En Node Labs diseñamos sitios web atractivos, veloces y estructurados con SEO en Google y psicología de ventas. 
           Incluye Dominio (.com) y Hosting de alta velocidad en un cómodo plan trimestral sin descapitalizarte.
         </p>
@@ -108,7 +108,7 @@ const handleCheckout = (planName, price) => {
             </button>
           </div>
         </div>
-        <p class="text-xs text-gray-300 font-mono mb-10 flex items-center justify-center gap-2">
+        <p class="text-[0.70rem] text-gray-300 font-mono mb-10 flex items-center justify-center gap-2">
           <span class="w-2 h-2 rounded-full bg-[#FF1E56] animate-pulse" aria-hidden="true"></span>
           Activa el sonido: Mira cómo posicionamos tu empresa en Google y multiplicamos tus contactos.
         </p>
@@ -116,7 +116,7 @@ const handleCheckout = (planName, price) => {
         <!-- Botón de Acción Principal -->
         <button 
           @click="handleCheckout('Plan Landing Page', '$37.50')"
-          class="w-full sm:w-auto bg-gradient-to-r from-[#D90036] to-[#B0002A] hover:from-[#B0002A] hover:to-[#D90036] text-white font-bold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(217,0,54,0.4)] transform hover:-translate-y-1 transition-all duration-300 text-lg"
+          class="w-full sm:w-auto bg-gradient-to-r from-[#D90036] to-[#B0002A] hover:from-[#B0002A] hover:to-[#D90036] text-white font-bold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(217,0,54,0.4)] transform hover:-translate-y-1 transition-all duration-300 text-[0.8rem]"
         >
           QUIERO ACTIVAR MI PÁGINA WEB DESDE $0.41 AL DÍA
         </button>
