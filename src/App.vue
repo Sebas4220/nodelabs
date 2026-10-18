@@ -37,8 +37,8 @@ const handleCheckout = (planName, price) => {
 <template>
   <div class="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#FF1E56] selection:text-white">
     
-    <!-- PRE-HEADLINE (CEBO SUPERIOR) - AJUSTE DE COLOR A #E60039 PARA MEJOR CONTRASTE S/ LIGHTHOUSE -->
-    <div class="bg-[#D90036] text-white text-center py-3 px-4 text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_15px_rgba(255,30,86,0.3)]">
+    <!-- PRE-HEADLINE (CEBO SUPERIOR) -->
+    <div class="bg-[#D90036] text-white text-center py-3 px-4 text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_15px_rgba(217,0,54,0.3)]">
       ¿Tu empresa sigue dependiendo de subir historias todos los días o del boca a boca para conseguir clientes?
     </div>
 
@@ -57,23 +57,29 @@ const handleCheckout = (planName, price) => {
           Incluye Dominio (.com) y Hosting de alta velocidad en un cómodo plan trimestral sin descapitalizarte.
         </p>
 
-        <!-- REPRODUCTOR VSL CON TAMAÑO EXPLÍCITO Y CARGA OPTIMIZADA PARA LCP -->
+        <!-- REPRODUCTOR VSL -->
         <div class="w-full max-w-3xl mx-auto mb-8 relative group cursor-pointer rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,30,86,0.15)] bg-black aspect-video min-h-[200px]">
-          <!-- Placeholder del Video Optimizada en peso y formato -->
-          <img 
+          <!-- Uso de NuxtImg para generar tamaños responsivos automáticamente -->
+          <NuxtImg 
             src="/hero-bg.webp" 
             alt="Video explicativo sobre posicionamiento SEO y ventas" 
             class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+            sizes="sm:400px md:800px lg:1200px"
+            format="webp"
             width="800"
             height="450"
+            preload
             fetchpriority="high"
           />
           
-          <!-- Botón de Play Overlay -->
+          <!-- Botón de Play Overlay (Cambiado a <button> y color a #D90036) -->
           <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-20 h-20 rounded-full bg-[#FF1E56] flex items-center justify-center pl-2 shadow-[0_0_30px_rgba(255,30,86,0.6)] transform group-hover:scale-110 transition-transform duration-300" aria-label="Reproducir video explicativo">
+            <button 
+              aria-label="Reproducir video explicativo"
+              class="w-20 h-20 rounded-full bg-[#D90036] hover:bg-[#B0002A] flex items-center justify-center pl-2 shadow-[0_0_30px_rgba(217,0,54,0.6)] transform group-hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/50" 
+            >
               <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            </div>
+            </button>
           </div>
         </div>
         <p class="text-xs text-gray-300 font-mono mb-10 flex items-center justify-center gap-2">
@@ -81,10 +87,10 @@ const handleCheckout = (planName, price) => {
           Activa el sonido: Mira cómo posicionamos tu empresa en Google y multiplicamos tus contactos.
         </p>
 
-        <!-- Botón de Acción Principal -->
+        <!-- Botón de Acción Principal (Ajustado el gradiente a #D90036 para accesibilidad) -->
         <button 
           @click="handleCheckout('Plan Landing Page', '$37.50')"
-          class="w-full sm:w-auto bg-gradient-to-r from-[#FF1E56] to-[#D90036] hover:from-[#D90036] hover:to-[#FF1E56] text-white font-bold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(255,30,86,0.4)] transform hover:-translate-y-1 transition-all duration-300 text-lg"
+          class="w-full sm:w-auto bg-gradient-to-r from-[#D90036] to-[#B0002A] hover:from-[#B0002A] hover:to-[#D90036] text-white font-bold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(217,0,54,0.4)] transform hover:-translate-y-1 transition-all duration-300 text-lg"
         >
           QUIERO ACTIVAR MI PÁGINA WEB DESDE $0.41 AL DÍA
         </button>
@@ -191,7 +197,6 @@ const handleCheckout = (planName, price) => {
               <span class="text-5xl font-bold text-[#FF1E56]">$0.41</span>
               <span class="text-gray-300">USD / al día</span>
             </div>
-            <!-- AJUSTADO A COLOR TEXT-GRAY-400 PARA CONTRASTE 4.5:1 -->
             <p class="text-sm text-gray-400 font-mono mb-6 pb-6 border-b border-white/10">Facturado trimestralmente ($37.50 USD cada 3 meses)</p>
             
             <ul class="space-y-4 text-sm text-gray-300 mb-10">
@@ -204,7 +209,7 @@ const handleCheckout = (planName, price) => {
 
             <button 
               @click="handleCheckout('Plan Landing Page', '$37.50')"
-              class="w-full bg-[#1A1A1A] hover:bg-[#FF1E56] border border-[#333333] hover:border-[#FF1E56] text-white font-bold py-4 px-6 rounded-xl transition-all duration-300"
+              class="w-full bg-[#1A1A1A] hover:bg-[#D90036] border border-[#333333] hover:border-[#D90036] text-white font-bold py-4 px-6 rounded-xl transition-all duration-300"
             >
               EMPEZAR POR $37.50 AL TRIMESTRE
             </button>
@@ -212,7 +217,8 @@ const handleCheckout = (planName, price) => {
 
           <!-- PLAN 2: WEB CORPORATIVA -->
           <div class="bg-gradient-to-b from-[#110A0C] to-[#0A0A0A] border-2 border-[#FF1E56] rounded-3xl p-8 relative shadow-[0_0_30px_rgba(255,30,86,0.15)] transform md:scale-105">
-            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#FF1E56] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <!-- Etiqueta ajustada a #D90036 -->
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#D90036] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
               ★ Más Completo
             </div>
             
@@ -221,7 +227,6 @@ const handleCheckout = (planName, price) => {
               <span class="text-5xl font-bold text-[#FF1E56]">$0.82</span>
               <span class="text-gray-300">USD / al día</span>
             </div>
-            <!-- AJUSTADO A COLOR TEXT-RED-400 PARA CONTRASTE 4.5:1 -->
             <p class="text-sm text-red-400 font-mono mb-6 pb-6 border-b border-white/10">Facturado trimestralmente ($75.00 USD cada 3 meses)</p>
             
             <ul class="space-y-4 text-sm text-gray-300 mb-10">
@@ -232,9 +237,10 @@ const handleCheckout = (planName, price) => {
               <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <strong>Incluye:</strong> Dominio (.com) + Hosting + Correos corporativos.</li>
             </ul>
 
+            <!-- Botón ajustado a #D90036 -->
             <button 
               @click="handleCheckout('Plan Web Corporativa SEO', '$75.00')"
-              class="w-full bg-[#FF1E56] hover:bg-[#D90036] text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              class="w-full bg-[#D90036] hover:bg-[#B0002A] text-white font-bold py-4 px-6 rounded-xl shadow-[0_0_15px_rgba(217,0,54,0.4)] transform hover:-translate-y-1 transition-all duration-300"
             >
               EMPEZAR POR $75.00 AL TRIMESTRE
             </button>
