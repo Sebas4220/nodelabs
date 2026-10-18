@@ -92,9 +92,10 @@ const handleCheckout = (planName, price) => {
 
     <!-- MAIN HERO & VSL -->
     <main class="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto flex flex-col items-center text-center">
-    <!-- Decoración de fondo -->
-    <div class="absolute top-0 w-[500px] h-[500px] bg-[#FF1E56]/10 rounded-full blur-[150px] pointer-events-none will-change-transform transform-gpu"></div> 
-    <div class="relative z-10 w-full max-w-4xl">
+      <!-- Decoración de fondo -->
+      <div class="absolute top-0 w-[500px] h-[500px] bg-[#FF1E56]/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div class="relative z-10 w-full max-w-4xl">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
           Haz que tus clientes ideales encuentren tu negocio en Google todos los días y convierte sus visitas en ventas reales... <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1E56] to-[#FF809F]">invirtiendo desde $0.41 centavos al día.</span>
         </h1>
@@ -306,7 +307,7 @@ const handleCheckout = (planName, price) => {
             <span class="font-semibold text-sm sm:text-base text-gray-200">{{ faq.question }}</span>
             <svg class="w-5 h-5 text-[#FF1E56] transform transition-transform duration-300" :class="{'rotate-180': faq.isOpen}" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div v-if="faq.isOpen" class="px-6 pb-5 text-gray-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+          <div v-show="faq.isOpen" class="px-6 pb-5 text-gray-300 text-sm leading-relaxed border-t border-white/5 pt-4">
             {{ faq.answer }}
           </div>
         </div>
