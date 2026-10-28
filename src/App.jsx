@@ -25,11 +25,11 @@ export default function LandingPage() {
     if (text1.length < phrase1.length) {
       timeout = setTimeout(() => {
         setText1(phrase1.slice(0, text1.length + 1));
-      }, 25);
+      }, 50);
     } else if (text2.length < phrase2.length) {
       timeout = setTimeout(() => {
         setText2(phrase2.slice(0, text2.length + 1));
-      }, 70);
+      }, 50);
     }
     return () => clearTimeout(timeout);
   }, [text1, text2]);
@@ -49,7 +49,7 @@ export default function LandingPage() {
         <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3f6299] rounded-full blur-[150px] opacity-50 pointer-events-none"></div>
 
         {/* HEADER SEMÁNTICO */}
-        <header className="relative z-10 py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex items-center justify-between">
+        <header className="relative z-10 py-6 max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <a href="/" className=" cursor-pointer hover:scale-105 transition-transform duration-300 block">
             <img 
@@ -91,22 +91,22 @@ export default function LandingPage() {
           </div>
         </section>
         
-        <section className="relative z-10 pt-8 pb-25 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="relative z-10 pt-8 pb-25 md:pb-32 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* COLUMNA IZQUIERDA: Textos y Botón */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
 
               {/* H1 Principal con Efecto Typewriter */}
-              <h1 className="text-[1.7rem] md:text-[2.2rem] font-black tracking-tight text-white mb-6 leading-[1.1] uppercase min-h-[140px] md:min-h-[110px]">
+              <h1 className="text-[1.5rem] md:text-[2.2rem] font-black tracking-tight text-white mb-6 leading-[1.1] uppercase min-h-[90px] md:min-h-[110px]">
                 {text1}
                 {text1.length < phrase1.length && (
-                  <span className="animate-pulse font-light text-[#06f7be]">|</span>
+                  <span className="animate-pulse font-light text-[transparent]">|</span>
                 )}
                 {text1.length === phrase1.length && (
-                  <span className="bg-[#ffffff] text-[#242a36] px-2 rounded-lg inline-block mt-1">
+                  <span className="bg-[#ffffff] text-[#242a36] ps-2 rounded-lg inline-block mt-1">
                     {text2}
-                    <span className="animate-pulse font-light text-[#06f7be] ml-1">|</span>
+                    <span className="animate-pulse font-light text-[transparent] ml-1">|</span>
                   </span>
                 )}
               </h1>
@@ -156,14 +156,14 @@ export default function LandingPage() {
 
         {/* SECCIÓN 2: AGITACIÓN DEL PROBLEMA */}
         <section id="problema" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto ">
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               
               <div className="lg:col-span-5 text-left">
-                <h2 className="text-[1.7rem] md:text-end text-center md:text-[2.2rem] font-black text-[#242a36] mb-6 leading-[1.1] uppercase">
+                <h2 className="text-[1.5rem] md:text-start text-center md:text-[2.2rem] font-black text-[#242a36] mb-6 leading-[1.1] uppercase">
                   ¿Por qué la mayoría de las empresas <span className="text-[#3f6299]">tiran su dinero</span> cuando contratan una página web?
                 </h2>
-                <p className="text-[0.8rem] md:text-end text-center md:text-[0.8rem] text-[#242a36]/70 leading-relaxed font-medium">
+                <p className="text-[0.8rem] md:text-start text-center md:text-[0.8rem] text-[#242a36]/70 leading-relaxed font-medium">
                   Cuando un negocio decide digitalizarse de forma profesional, suele chocar con dos grandes obstáculos:
                 </p>
               </div>
@@ -171,10 +171,10 @@ export default function LandingPage() {
               <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
                 {/* Tarjeta Problema 1 */}
                 <div className="bg-[#ffffff] p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(36,42,54,0.06)] border border-[#242a36]/5 animate-[float_6s_ease-in-out_infinite] hover:shadow-[0_30px_60px_rgba(36,42,54,0.12)] transition-shadow duration-300 group cursor-default">
-                  <div className="w-16 h-16 bg-[#149674]/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#149674] transition-colors duration-300">
-                    <Wallet className="w-8 h-8 text-[#149674] group-hover:text-white group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300" />
+                  <div className="w-16 h-16 bg-[#06f7be]/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#06f7be] transition-colors duration-300">
+                    <Wallet className="w-8 h-8 text-[#06f7be] group-hover:text-white group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300" />
                   </div>
-                  <h3 className="text-[1rem] font-black text-[#242a36] mb-4 uppercase group-hover:text-[#149674] transition-colors duration-300">Presupuestos inflados y cobros ocultos</h3>
+                  <h3 className="text-[1rem] font-black text-[#242a36] mb-4 uppercase group-hover:text-[#06f7be] transition-colors duration-300">Presupuestos inflados y cobros ocultos</h3>
                   <p className="text-[#242a36]/70 leading-relaxed text-[0.8rem]">
                     Las agencias tradicionales te piden entre $600 y $1,200 dólares solo por el diseño, y luego te obligan a pagar aparte el servidor, el dominio y la configuración básica en Google.
                   </p>
@@ -197,10 +197,10 @@ export default function LandingPage() {
 
         {/* SECCIÓN 3 Y 4: MECANISMO DE RESULTADOS */}
         <section id="solucion" className="md:pt-5 pt-10 pb-30 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto mb-20">
-              <h2 className="text-[1.7rem] md:text-[2.2rem] font-black text-[#242a36] leading-[1.1] uppercase">
-                Un sistema digital diseñado con un solo propósito: <br/><span className="text-[#149674]">generar alcance en Google y ventas.</span>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-6xl mx-auto mb-20">
+              <h2 className="text-[1.5rem] md:text-[2.2rem] font-black text-[#242a36] leading-[1.1] uppercase">
+                Un sistema digital diseñado con un solo propósito: <br/><span className="text-[#06f7be]">generar alcance en Google y ventas.</span>
               </h2>
             </div>
 
@@ -268,9 +268,9 @@ export default function LandingPage() {
         <section id="planes" className="md:py-32 py-25 bg-[#242a36] relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#3f6299] rounded-full blur-[200px] opacity-40 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-5xl mx-auto mb-20">
-              <h2 className="text-[1.7rem] md:text-[2.2rem] font-black text-[#ffffff] leading-[1.1] uppercase">
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center max-w-7xl mx-auto mb-20">
+              <h2 className="text-[1.5rem] md:text-[2.2rem] font-black text-[#ffffff] leading-[1.1] uppercase">
                 Sin letras pequeñas ni mensualidades.<br /> <span className="text-[#06f7be]">Haz un solo pago y sé dueño de tu web.</span>
               </h2>
             </div>
@@ -293,23 +293,23 @@ export default function LandingPage() {
                 
                 <ul className="space-y-5 mb-10" aria-label="Características del plan Landing Page">
                   <li className="flex items-start group/list">
-                    <CheckCircle2 className="w-6 h-6 text-[#149674] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                    <CheckCircle2 className="w-6 h-6 text-[#06f7be] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
                     <span className="text-[#242a36]/80 text-[0.8rem] leading-relaxed"><strong>Enfoque:</strong> Captación masiva de prospectos y venta directa de un servicio o producto principal.</span>
                   </li>
                   <li className="flex items-start group/list">
-                    <CheckCircle2 className="w-6 h-6 text-[#149674] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                    <CheckCircle2 className="w-6 h-6 text-[#06f7be] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
                     <span className="text-[#242a36]/80 text-[0.8rem] leading-relaxed">Diseño de 1 página larga estructurada como embudo de ventas.</span>
                   </li>
                   <li className="flex items-start group/list">
-                    <CheckCircle2 className="w-6 h-6 text-[#149674] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                    <CheckCircle2 className="w-6 h-6 text-[#06f7be] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
                     <span className="text-[#242a36]/80 text-[0.8rem] leading-relaxed">Configuración SEO base para aparecer en Google.</span>
                   </li>
                   <li className="flex items-start group/list">
-                    <CheckCircle2 className="w-6 h-6 text-[#149674] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                    <CheckCircle2 className="w-6 h-6 text-[#06f7be] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
                     <span className="text-[#242a36]/80 text-[0.8rem] leading-relaxed">Integración directa a WhatsApp y redes sociales.</span>
                   </li>
                   <li className="flex items-start group/list">
-                    <CheckCircle2 className="w-6 h-6 text-[#149674] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
+                    <CheckCircle2 className="w-6 h-6 text-[#06f7be] mr-4 shrink-0 group-hover/list:scale-110 transition-transform" />
                     <span className="text-[#242a36]/80 text-[0.8rem] leading-relaxed"><strong>Incluye:</strong> Dominio (.com) + Hosting por 12 meses.</span>
                   </li>
                 </ul>
