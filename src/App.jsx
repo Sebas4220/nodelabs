@@ -40,7 +40,7 @@ export default function LandingPage() {
       {/* =========================================
           BLOQUE OSCURO TOP
           ========================================= */}
-      <div className="relative bg-[#242a36] text-white">
+      <div className="relative bg-[#242a36] text-white px-10">
         
         {/* IMAGEN DE FONDO SUTIL */}
         <div className="absolute inset-0 bg-[url('/logo.png')] bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none mix-blend-overlay"></div>
@@ -156,7 +156,7 @@ export default function LandingPage() {
 
         {/* SECCIÓN 2: AGITACIÓN DEL PROBLEMA */}
         <section id="problema" className="py-20 relative">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-7xl mx-auto px-10">
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               
               <div className="lg:col-span-5 text-left">
@@ -197,7 +197,7 @@ export default function LandingPage() {
 
         {/* SECCIÓN 3 Y 4: MECANISMO DE RESULTADOS */}
         <section id="solucion" className="md:pt-5 pt-10 pb-30 relative">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto px-10">
             <div className="text-center max-w-6xl mx-auto mb-20">
               <h2 className="text-[1.5rem] md:text-[2.2rem] font-black text-[#242a36] leading-[1.1] uppercase">
                 Un sistema digital diseñado con un solo propósito: <br/><span className="text-[#06f7be]">generar alcance en Google y ventas.</span>
@@ -268,7 +268,7 @@ export default function LandingPage() {
         <section id="planes" className="md:py-32 py-25 bg-[#242a36] relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#3f6299] rounded-full blur-[200px] opacity-40 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto relative z-10">
+          <div className="max-w-7xl mx-auto px-10 relative z-10">
             <div className="text-center max-w-7xl mx-auto mb-20">
               <h2 className="text-[1.5rem] md:text-[2.2rem] font-black text-[#ffffff] leading-[1.1] uppercase">
                 Sin letras pequeñas ni mensualidades.<br /> <span className="text-[#06f7be]">Haz un solo pago y sé dueño de tu web.</span>
